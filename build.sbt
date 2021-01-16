@@ -2,6 +2,7 @@ name := "Hello"
 version := "1.0"
 scalaVersion := "2.12.12"
 
+/* Creating a mdoule "actor" and providng multiple library and testing dependecies */
 lazy val actor = project.in(file("actor"))
 	.settings(
 	libraryDependencies ++= Seq(
@@ -14,6 +15,8 @@ lazy val actor = project.in(file("actor"))
 	)
 )
 
+
+/* Creating a mdoule "persistence" and providng multiple library and testing dependecies */
 lazy val persistence = project.in(file("persistence"))
 	.settings(
 	libraryDependencies ++= Seq(
@@ -24,6 +27,7 @@ lazy val persistence = project.in(file("persistence"))
 	)
 )
 
+/* We are providing the classpath because our modules are dependent on each other */
 lazy val root = project.in(file(".")).dependsOn(actor, persistence)
 
 
